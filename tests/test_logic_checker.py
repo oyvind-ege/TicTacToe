@@ -1,7 +1,7 @@
 import pytest
 
-from src.LogicChecker import LogicChecker
-from src.Board import Board
+from src.classes.LogicChecker import LogicChecker
+from src.classes.Board import Board
 
 
 """

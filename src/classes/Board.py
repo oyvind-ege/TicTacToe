@@ -20,6 +20,7 @@ The game board looks like this (with coordinates):
 class Board:
     def __init__(self):
         self.size = 3
+
         self.game_board = [[' ' for column in range(self.size + 2)] for rows in range(self.size + 2)] #This represents the board data
 
         self._set_grid()
@@ -57,8 +58,8 @@ class Board:
         print("\n")
         for row in self.game_board:
             for item in row:
-                if item == ' ' or item == 'X' or item == 'O':
-                    print('', end=' ')
+                if item == ' ' or item == 'X' or item == 'O' or item.isnumeric():
+                    print(' ', end='')
                 print(item, end=" ")
             print('\n')
         print("\n")

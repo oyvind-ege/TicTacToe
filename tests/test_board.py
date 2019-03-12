@@ -1,6 +1,6 @@
 import pytest
 
-from src.Board import Board
+from src.classes.Board import Board
 
 
 @pytest.fixture(scope="function")
@@ -17,7 +17,7 @@ class TestBoardClass(object):
                                     [' ', '|', ' ', '|', ' ']]
     
     def test_get_list_data(self, board):
-        assert board.get_list_of_data() == [[' ', '|', ' ', '|', ' '],
+        assert board.game_board == [[' ', '|', ' ', '|', ' '],
                                             ['--', '+', '--', '+', '--'],
                                             [' ', '|', ' ', '|', ' '],
                                             ['--', '+', '--', '+', '--'],
@@ -25,7 +25,7 @@ class TestBoardClass(object):
 
     def test_insert(self, board):
         board.insert('X', 0, 0)
-        assert board.get_list_of_data() == [['X', '|', ' ', '|', ' '],
+        assert board.game_board == [['X', '|', ' ', '|', ' '],
                                             ['--', '+', '--', '+', '--'],
                                             [' ', '|', ' ', '|', ' '],
                                             ['--', '+', '--', '+', '--'],
@@ -33,7 +33,7 @@ class TestBoardClass(object):
     
     def test_insert_44(self, board):
         board.insert('X', 4, 4)
-        assert board.get_list_of_data() == [[' ', '|', ' ', '|', ' '],
+        assert board.game_board == [[' ', '|', ' ', '|', ' '],
                                             ['--', '+', '--', '+', '--'],
                                             [' ', '|', ' ', '|', ' '],
                                             ['--', '+', '--', '+', '--'],
@@ -41,7 +41,7 @@ class TestBoardClass(object):
     
     def test_insert_42(self, board):
         board.insert('O', 2, 4)
-        assert board.get_list_of_data() == [[' ', '|', ' ', '|', ' '],
+        assert board.game_board == [[' ', '|', ' ', '|', ' '],
                                             ['--', '+', '--', '+', '--'],
                                             [' ', '|', ' ', '|', ' '],
                                             ['--', '+', '--', '+', '--'],
