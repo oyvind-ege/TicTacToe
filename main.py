@@ -5,7 +5,7 @@ from src.classes.LogicChecker import LogicChecker
 from src.classes.InputHandler import InputHandler
 
 board = Board() #This is the game board itself
-checker = LogicChecker(board)
+logic = LogicChecker(board)
 
 help_board = Board() #This is a board that helps the user pick where to place their X or O.
 
@@ -35,6 +35,12 @@ while 1:
     print("\t\tRound ", i, ":")
     board.draw()
     player_choice = in_handler.get_player_choice(current_player)
+
+    if logic.is_this_move_a_victory(current_player, *player_choice):
+        print("\n-------------------------------------------------")
+        print("\nPlayer", current_player, "has won after", i, "rounds!!\nAll hail the victor!\n")
+        print("-------------------------------------------------\n\n\n")
+        break
 
     if player_choice != -1: #player_choice will be false if one of the players surrenders
         board.insert(current_player, *player_choice)
