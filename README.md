@@ -1,6 +1,6 @@
-#Tic Tac Toe
+# Tic Tac Toe
 
-##Description
+## Description
 
 This is my python implementation of Tic Tac Toe.
 
