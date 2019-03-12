@@ -36,8 +36,8 @@ class Board:
             arow[4] = '--'
         
         def _insert_simple_line(arow):
-            row[1] = '|'
-            row[3] = '|'
+            arow[1] = '|'
+            arow[3] = '|'
 
         for index, row in enumerate(self.game_board):
             #Insert horizontal dividing lines in all odd rows

@@ -36,15 +36,15 @@ while 1:
     board.draw()
     player_choice = in_handler.get_player_choice(current_player)
 
+    if player_choice != -1: #player_choice will be false if one of the players surrenders
+        board.insert(current_player, *player_choice)
+    else:
+        break
+
     if logic.is_this_move_a_victory(current_player, *player_choice):
         print("\n-------------------------------------------------")
         print("\nPlayer", current_player, "has won after", i, "rounds!!\nAll hail the victor!\n")
         print("-------------------------------------------------\n\n\n")
-        break
-
-    if player_choice != -1: #player_choice will be false if one of the players surrenders
-        board.insert(current_player, *player_choice)
-    else:
         break
 
     if current_player == 'X':
