@@ -1,50 +1,49 @@
-from src.cBoard import Board
+import pytest
+
+from src.Board import Board
+
+
+@pytest.fixture(scope="function")
+def board():
+    board = Board()
+    board._set_grid()
+    return board
 
 class TestBoardClass(object):
-    def test_set_board(self):
-        board = Board()
-        board._set_grid()
+    def test_set_board(self, board):
         assert board.game_board == [[' ', '|', ' ', '|', ' '],
                                     ['--', '+', '--', '+', '--'],
                                     [' ', '|', ' ', '|', ' '],
                                     ['--', '+', '--', '+', '--'],
                                     [' ', '|', ' ', '|', ' ']]
     
-    def test_draw(self):
-        board = Board()
-        board._set_grid()
-        assert board.draw() ==      [[' ', '|', ' ', '|', ' '],
-                                    ['--', '+', '--', '+', '--'],
-                                    [' ', '|', ' ', '|', ' '],
-                                    ['--', '+', '--', '+', '--'],
-                                    [' ', '|', ' ', '|', ' ']]
+    def test_get_list_data(self, board):
+        assert board.get_list_of_data() == [[' ', '|', ' ', '|', ' '],
+                                            ['--', '+', '--', '+', '--'],
+                                            [' ', '|', ' ', '|', ' '],
+                                            ['--', '+', '--', '+', '--'],
+                                            [' ', '|', ' ', '|', ' ']]
 
-    def test_insert(self):
-        board = Board()
-        board._set_grid()
+    def test_insert(self, board):
         board.insert('X', 0, 0)
-        assert board.draw() == [['X', '|', ' ', '|', ' '],
-                                ['--', '+', '--', '+', '--'],
-                                [' ', '|', ' ', '|', ' '],
-                                ['--', '+', '--', '+', '--'],
-                                [' ', '|', ' ', '|', ' ']]
+        assert board.get_list_of_data() == [['X', '|', ' ', '|', ' '],
+                                            ['--', '+', '--', '+', '--'],
+                                            [' ', '|', ' ', '|', ' '],
+                                            ['--', '+', '--', '+', '--'],
+                                            [' ', '|', ' ', '|', ' ']]
     
-    def test_insert_44(self):
-        board = Board()
-        board._set_grid()
+    def test_insert_44(self, board):
         board.insert('X', 4, 4)
-        assert board.draw() == [[' ', '|', ' ', '|', ' '],
-                                ['--', '+', '--', '+', '--'],
-                                [' ', '|', ' ', '|', ' '],
-                                ['--', '+', '--', '+', '--'],
-                                [' ', '|', ' ', '|', 'X']]
+        assert board.get_list_of_data() == [[' ', '|', ' ', '|', ' '],
+                                            ['--', '+', '--', '+', '--'],
+                                            [' ', '|', ' ', '|', ' '],
+                                            ['--', '+', '--', '+', '--'],
+                                            [' ', '|', ' ', '|', 'X']]
     
-    def test_insert_42(self):
-        board = Board()
-        board._set_grid()
+    def test_insert_42(self, board):
         board.insert('O', 2, 4)
-        assert board.draw() == [[' ', '|', ' ', '|', ' '],
-                                ['--', '+', '--', '+', '--'],
-                                [' ', '|', ' ', '|', ' '],
-                                ['--', '+', '--', '+', '--'],
-                                [' ', '|', 'O', '|', ' ']]
+        assert board.get_list_of_data() == [[' ', '|', ' ', '|', ' '],
+                                            ['--', '+', '--', '+', '--'],
+                                            [' ', '|', ' ', '|', ' '],
+                                            ['--', '+', '--', '+', '--'],
+                                            [' ', '|', 'O', '|', ' ']]

@@ -21,16 +21,12 @@ class Board:
     def __init__(self):
         self.size = 3
         self.game_board = [[' ' for column in range(self.size + 2)] for rows in range(self.size + 2)] #This represents the board data
-    
-    def _set_grid(self):
-        """
-        Purpose: Inserts the edges and intersections into the game board.
-        Example:
 
-          |  | 
-        --+--+--
-          |  | 
-        """
+        self._set_grid()
+
+    def _set_grid(self):
+        """Insert the edges and intersections into the game board."""
+        
         def _insert_horizontal_dividing_line(arow):
             arow[0] = '--'
             arow[1] = '+'
@@ -58,6 +54,6 @@ class Board:
         """
         self.game_board[y][x] = symbol
     
-    def draw(self):
+    def get_list_of_data(self):
         """Draws the current board on the screen."""
         return [row for row in self.game_board]
