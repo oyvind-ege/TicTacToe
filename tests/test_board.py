@@ -6,7 +6,6 @@ from src.Board import Board
 @pytest.fixture(scope="function")
 def board():
     board = Board()
-    board._set_grid()
     return board
 
 class TestBoardClass(object):
