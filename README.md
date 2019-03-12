@@ -1,7 +1,5 @@
 # Tic Tac Toe
 
-## Description
-
 This is my python implementation of Tic Tac Toe.
 
 *From Wikipedia:*
