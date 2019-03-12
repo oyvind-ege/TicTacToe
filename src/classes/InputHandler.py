@@ -6,8 +6,8 @@ class InputHandler:
     def fetch_input(self, player):
         while 1:
             print("------------------------")
-            print("Player ", player, " - it is your turn.")
-            choice = input("Please type in a number between 1 and 9, then hit Enter.\nIf you give up, type surrender.\n\nType help and hit Enter to see what the numbers mean.\n\nYour choice: ")
+            print("Player ", player, " - it is your turn.\n")
+            choice = input("Please type in a number between 1 and 9, then hit Enter.\nIf you give up, type 'surrender'.\nType 'help' to see what the numbers mean.\n\nYour choice: ")
             try:
                 if choice == 'help':
                     self.help_message()
@@ -54,5 +54,6 @@ class InputHandler:
         """This function prints the helper board to the terminal."""
         print("\nThe numbers 1-9 correspond to these slots on the board:")
         self.helper_board.draw()
-        print("\nThe board currently looks like this:")
+        print("The board currently looks like this:")
         self.game_board.draw()
+        print("\nSo, what's your move?\n\n")

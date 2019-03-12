@@ -32,7 +32,7 @@ i = 1
 while 1:
 
     print("------------------------------------------------")
-    print("\t\tRound ", i)
+    print("\t\tRound ", i, ":")
     board.draw()
     player_choice = in_handler.get_player_choice(current_player)
 

@@ -10,6 +10,8 @@ Tic-tac-toe (American English) is a paper-and-pencil game for two players, X and
 ### Todo
 
 - [X] Write draw() function for the Board class. This function will take data from self.game_board and render it nicely in the terminal.
-- [ ] Handle user input. Allow user to select a number between 1 and 9. Insert a symbol at the corresponding coordinate.
-- [ ] Write main loop.
+- [X] Handle user input. Allow user to select a number between 1 and 9. Insert a symbol at the corresponding coordinate.
+- [X] Write main loop.
+- [ ] Check whether a player has won.
+
 
