@@ -28,13 +28,13 @@ in_handler = InputHandler(help_board, board)
 current_player = 'X'
 i = 1
 while 1:
-
+    print("\n\n")
     print("------------------------------------------------")
     print("\t\tRound ", i, ":")
     board.draw()
     player_choice = in_handler.get_player_choice(current_player)
 
-    if player_choice != -1: #player_choice will be -1 if one of the players surrenders
+    if player_choice != 'surrender': #player_choice will be -1 if one of the players surrenders
         board.insert(current_player, *player_choice)
     else:
         break #One of the players have surrendered.

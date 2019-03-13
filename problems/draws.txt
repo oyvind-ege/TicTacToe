@@ -1,0 +1,35 @@
+
+
+The game board looks like this (with coordinates):
+
+  0  1  2  3  4
+0    |     |
+1 -- +  -- + --
+2    |     |   
+3 -- +  -- + --
+4    |     |
+
+
+
+Draw scenarios:
+
+  0  1  2  3  4
+0  X |  X  | O
+1 -- +  -- + --
+2  O |     | X 
+3 -- +  -- + --
+4  X |  O  | O
+
+
+  0  1  2  3  4
+0  X |  O  | X
+1 -- +  -- + --
+2    |  X  | O  
+3 -- +  -- + --
+4  O |  X  | O
+
+
+if there is only one open tile left:
+    see if putting the symbol of current player would lead to victory
+        if so, declare victor
+        if not, declare draw
