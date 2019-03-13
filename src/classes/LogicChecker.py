@@ -41,3 +41,7 @@ class LogicChecker:
         return (self._check_horizontal(symbol, x, y) 
             or self._check_diagonal(symbol, y) 
             or self._check_vertical(symbol, x, y))
+
+    def would_this_move_be_a_draw(self, symbol, x, y):
+        """Determine whether adding symbol to x,y of the game board would lead to victory. Return boolean."""
+        pass
