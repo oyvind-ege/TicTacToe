@@ -86,7 +86,7 @@ class TestLogicChecker(object):
         board.insert('X', 2, 2)
         checker = LogicChecker(board)
         
-        assert checker._check_diagonal('X', 0) == True
+        assert checker._check_diagonal('X', 0, 0) == True
 
     def test_check_diagonal_last_row(self):
         board = Board()
@@ -94,7 +94,7 @@ class TestLogicChecker(object):
         board.insert('X', 2, 2)
         checker = LogicChecker(board)
         
-        assert checker._check_diagonal('X', 4) == True
+        assert checker._check_diagonal('X', 4, 4) == True
     
     def test_check_diagonal_last_row_false(self):
         board = Board()
@@ -102,7 +102,7 @@ class TestLogicChecker(object):
         board.insert('X', 2, 2)
         checker = LogicChecker(board)
         
-        assert checker._check_diagonal('X', 4) == False
+        assert checker._check_diagonal('X', 4, 4) == False
     
     def test_check_diagonal_middle_row(self):
         board = Board()
@@ -110,7 +110,7 @@ class TestLogicChecker(object):
         board.insert('X', 4, 4)
         checker = LogicChecker(board)
         
-        assert checker._check_diagonal('X', 2) == True
+        assert checker._check_diagonal('X', 2, 2) == True
     
     def test_check_diagonal_middle_row_false(self):
         board = Board()
@@ -118,7 +118,7 @@ class TestLogicChecker(object):
         board.insert('X', 0, 4)
         checker = LogicChecker(board)
         
-        assert checker._check_diagonal('X', 2) == False
+        assert checker._check_diagonal('X', 2, 2) == False
     
     def test_check_diagonal_symbol_mismatch(self):
         board = Board()
@@ -126,7 +126,7 @@ class TestLogicChecker(object):
         board.insert('X', 4, 4)
         checker = LogicChecker(board)
         
-        assert checker._check_diagonal('O', 2) == False
+        assert checker._check_diagonal('O', 2, 2) == False
 
     def test_check_diagonal_other_symbol(self):
         board = Board()
@@ -134,5 +134,5 @@ class TestLogicChecker(object):
         board.insert('O', 4, 4)
         checker = LogicChecker(board)
         
-        assert checker._check_diagonal('O', 2) == True
+        assert checker._check_diagonal('O', 2, 2) == True
       

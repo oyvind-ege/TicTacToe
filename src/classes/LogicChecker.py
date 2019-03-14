@@ -26,7 +26,11 @@ class LogicChecker:
         else:
             return False
     
-    def _check_diagonal(self, symbol, y):
+    def _check_diagonal(self, symbol, x, y):
+        
+        if y != x:
+            return False
+
         if y == 0:
             return (self.board.game_board[2][2] == symbol and self.board.game_board[4][4] == symbol)
         elif y == 2:
@@ -39,6 +43,7 @@ class LogicChecker:
     def is_this_move_a_victory(self, symbol, x, y):
         """Determine whether adding symbol to x,y of the game board would lead to victory. Return boolean."""
         return (self._check_horizontal(symbol, x, y) 
+<<<<<<< HEAD
             or self._check_diagonal(symbol, y) 
             or self._check_vertical(symbol, x, y))
 
@@ -58,3 +63,9 @@ class LogicChecker:
     def would_this_move_be_a_draw(self, symbol, x, y):
         """Determine whether adding symbol to x,y of the game board would lead to victory. Return boolean."""
 >>>>>>> Stashed changes
+=======
+            or self._check_diagonal(symbol, x, y) 
+            or self._check_vertical(symbol, x, y))
+
+
+>>>>>>> origin/master
