@@ -64,6 +64,7 @@ class Board:
             print('\n')
         print("\n")
 
+<<<<<<< Updated upstream
     def empty_tile_coordinates(self):
         """Returns the coordinates for all empty tiles."""
         if self.game_board == None:
@@ -76,3 +77,23 @@ class Board:
                     coordinate_list.append((colid, rowid))
         
         return coordinate_list
+=======
+    def how_many_open_tiles_remain(self):
+        """Returns the number of open tiles left on the game_board."""
+        if self.game_board == None:
+            raise IndexError
+
+        count = 0
+        for rowid, row in enumerate(self.game_board):
+            if rowid % 2 != 0:
+                continue
+            count += sum(1 for x in row if x == ' ')
+
+        return count
+                
+
+
+        
+
+        
+>>>>>>> Stashed changes
