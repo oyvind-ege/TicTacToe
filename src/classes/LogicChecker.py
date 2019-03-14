@@ -27,7 +27,7 @@ class LogicChecker:
             return False
     
     def _check_diagonal(self, symbol, x, y):
-        """Check if adding a symbol to either (0,0), (2,0), (4,0), (2,2), (0,4), (2, 4), (4,4) will lead to a complete diagonal."""
+        """Check if adding a symbol to either (0,0), (4,0), (2,2), (0,4), (4,4) will lead to a complete diagonal."""
         if y == 0:
             return (self.board.game_board[2][2] == symbol and self.board.game_board[4][4] == symbol
                 or  self.board.game_board[2][2] == symbol and self.board.game_board[4][0] == symbol)
