@@ -27,27 +27,25 @@ class LogicChecker:
             return False
     
     def _check_diagonal(self, symbol, x, y):
-        
-        if y != x:
-            return False
-
+        """Check if adding a symbol to either (0,0), (2,0), (4,0), (2,2), (0,4), (2, 4), (4,4) will lead to a complete diagonal."""
         if y == 0:
-            return (self.board.game_board[2][2] == symbol and self.board.game_board[4][4] == symbol)
+            return (self.board.game_board[2][2] == symbol and self.board.game_board[4][4] == symbol
+                or  self.board.game_board[2][2] == symbol and self.board.game_board[4][0] == symbol)
         elif y == 2:
-            return (self.board.game_board[0][0] == symbol and self.board.game_board[4][4] == symbol)
+            return (self.board.game_board[0][0] == symbol and self.board.game_board[4][4] == symbol
+                or  self.board.game_board[0][4] == symbol and self.board.game_board[4][0] == symbol)
         elif y == 4:
-            return (self.board.game_board[0][0] == symbol and self.board.game_board[2][2] == symbol)
+            return (self.board.game_board[0][0] == symbol and self.board.game_board[2][2] == symbol
+                or  self.board.game_board[0][4] == symbol and self.board.game_board[2][2] == symbol)
         else:
             return False
 
     def is_this_move_a_victory(self, symbol, x, y):
         """Determine whether adding symbol to x,y of the game board would lead to victory. Return boolean."""
         return (self._check_horizontal(symbol, x, y) 
-<<<<<<< HEAD
-            or self._check_diagonal(symbol, y) 
+            or self._check_diagonal(symbol, x, y) 
             or self._check_vertical(symbol, x, y))
 
-<<<<<<< Updated upstream
     def would_this_be_a_draw(self, symbol, empty_tiles_coordinates):
         """Checks whether the current gameboard setting results in a draw. Accepts a list of tuples. Each tuple contains coordinates for all empty tiles."""
         #If len(empty_tiles_coordinates) == 1:
@@ -58,14 +56,3 @@ class LogicChecker:
 
     def would_this_move_be_a_draw(self, symbol, x, y):
         """Determine whether adding symbol to x,y of the game board would lead to victory. Return boolean."""
-        pass
-=======
-    def would_this_move_be_a_draw(self, symbol, x, y):
-        """Determine whether adding symbol to x,y of the game board would lead to victory. Return boolean."""
->>>>>>> Stashed changes
-=======
-            or self._check_diagonal(symbol, x, y) 
-            or self._check_vertical(symbol, x, y))
-
-
->>>>>>> origin/master

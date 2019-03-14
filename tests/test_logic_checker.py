@@ -112,6 +112,16 @@ class TestLogicChecker(object):
         
         assert checker._check_diagonal('X', 2, 2) == True
     
+    def test_check_diagonal_topright_to_bottom_left(self):
+        board = Board()
+        board.insert('X', 4, 0)
+        board.insert('X', 2, 2)
+        checker = LogicChecker(board)
+
+        board.draw()
+        
+        assert checker._check_diagonal('X', 0, 4) == True
+    
     def test_check_diagonal_middle_row_false(self):
         board = Board()
         board.insert('X', 0, 0)
