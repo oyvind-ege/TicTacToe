@@ -42,6 +42,14 @@ class LogicChecker:
             or self._check_diagonal(symbol, y) 
             or self._check_vertical(symbol, x, y))
 
+    def would_this_be_a_draw(self, symbol, empty_tiles_coordinates):
+        """Checks whether the current gameboard setting results in a draw. Accepts a list of tuples. Each tuple contains coordinates for all empty tiles."""
+        #If len(empty_tiles_coordinates) == 1:
+            #Main logic
+        #Else
+            #Return False
+        pass
+
     def would_this_move_be_a_draw(self, symbol, x, y):
         """Determine whether adding symbol to x,y of the game board would lead to victory. Return boolean."""
         pass
