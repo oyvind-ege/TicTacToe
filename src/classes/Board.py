@@ -86,6 +86,12 @@ class Board:
 
         return return_dict
 
+    def dict_to_tiles(self, dictionary):
+        """Will transform dictionary into self.game_board."""
+        for symbol in dictionary:
+            coordinates = dictionary[symbol]
+            for each in coordinates:
+                self.game_board[each[0]][each[1]] = symbol
 
     def empty_tile_coordinates(self):
         """Returns the coordinates for all empty tiles in X,Y format."""
