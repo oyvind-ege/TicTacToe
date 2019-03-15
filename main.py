@@ -26,11 +26,10 @@ in_handler = InputHandler(help_board, board)
 """Main Loop"""
 
 current_player = 'X'
-i = 1
 while 1:
     print("\n\n")
     print("------------------------------------------------")
-    print("\t\tRound ", i, ":")
+    print("\t\tRound ", logic.round, ":")
     board.draw()
     player_choice = in_handler.get_player_choice(current_player)
 
@@ -41,7 +40,7 @@ while 1:
 
     if logic.is_this_move_a_victory(current_player, *player_choice):
         print("\n-------------------------------------------------")
-        print("\nPlayer", current_player, "has won after", i, "rounds!!\nAll hail the victor!\n")
+        print("\nPlayer", current_player, "has won after", logic.round, "rounds!!\nAll hail the victor!\n")
         print("-------------------------------------------------\n\n\n")
         board.draw()
         break
@@ -51,4 +50,4 @@ while 1:
     else:
         current_player = 'X'
 
-    i += 1
+    logic.round += 1

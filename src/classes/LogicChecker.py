@@ -1,6 +1,7 @@
 class LogicChecker:
     def __init__(self, board):
         self.board = board
+        self.round = 1
 
     def _check_horizontal(self, symbol, x, y):
         if x == 0:
