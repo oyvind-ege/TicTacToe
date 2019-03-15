@@ -29,25 +29,30 @@ current_player = 'X'
 while 1:
     print("\n\n")
     print("------------------------------------------------")
-    print("\t\tRound ", logic.round, ":")
+    print("\t\tRound ", logic.turn, ":")
+
+
     board.draw()
+
     player_choice = in_handler.get_player_choice(current_player)
 
-    if player_choice != 'surrender': #player_choice will be -1 if one of the players surrenders
-        board.insert(current_player, *player_choice)
+    if player_choice == 'surrender':
+        break
     else:
-        break #One of the players have surrendered.
+        board.insert(current_player, *player_choice) 
 
     if logic.is_this_move_a_victory(current_player, *player_choice):
         print("\n-------------------------------------------------")
-        print("\nPlayer", current_player, "has won after", logic.round, "rounds!!\nAll hail the victor!\n")
+        print("\nPlayer", current_player, "has won after", logic.turn, "rounds!!\nAll hail the victor!\n")
         print("-------------------------------------------------\n\n\n")
         board.draw()
         break
+    
+        #Would this be a draw?
 
     if current_player == 'X':
         current_player = 'O'
     else:
         current_player = 'X'
 
-    logic.round += 1
+    logic.turn += 1
