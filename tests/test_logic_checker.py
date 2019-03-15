@@ -1,5 +1,3 @@
-import pytest
-
 from src.classes.LogicChecker import LogicChecker
 from src.classes.Board import Board
 
@@ -208,6 +206,7 @@ class TestDrawChecker(object):
                             ['O', '|', 'O', '|', 'X'],
                             ['--', '+', '--', '+', '--'],
                             ['X', '|', 'O', '|', 'O']]
+        board.draw()
         assert checker.would_this_be_a_draw('X', [(4,0)]) == False
     
     def test_diagonal_victory_in_1(self):
@@ -244,21 +243,28 @@ class TestDrawChecker(object):
         checker = LogicChecker(board)
         checker.turn = 8
         board.game_board = [['X', '|', 'X', '|', 'O'],
-                            ['--', '+', '--', '+', '--'],
-                            ['O', '|', 'X', '|', ' '],
-                            ['--', '+', '--', '+', '--'],
-                            ['X', '|', 'O', '|', ' ']]
+                        ['--', '+', '--', '+', '--'],
+                        ['O', '|', 'X', '|', ' '],
+                        ['--', '+', '--', '+', '--'],
+                        ['X', '|', 'O', '|', ' ']]
+
+        checker.board.draw()
+
         assert checker.would_this_be_a_draw('O', [(4,2), (4,4)]) == False
     
     def test_mistake_possible_2(self):
         board = Board()
         checker = LogicChecker(board)
         checker.turn = 8
+
         board.game_board = [['X', '|', ' ', '|', 'X'],
                             ['--', '+', '--', '+', '--'],
                             ['X', '|', 'X', '|', 'O'],
                             ['--', '+', '--', '+', '--'],
                             ['O', '|', 'O', '|', ' ']]
+
+        checker.board.draw()
+
         assert checker.would_this_be_a_draw('O', [(2,0), (4,4)]) == False
     
 

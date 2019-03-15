@@ -32,10 +32,8 @@ in_handler = InputHandler(help_board, board)
 
 current_player = 'X'
 while 1:
-    print("\n\n")
     print("------------------------------------------------")
     print("\t\tRound ", math.ceil(logic.turn/2), ":\n\n\tPlayer ", current_player, " - it is your turn.\n")
-
 
     board.draw()
 
@@ -54,13 +52,12 @@ while 1:
         break
     
     if logic.turn >= 7:
-     if logic.would_this_be_a_draw(current_player, board.empty_tile_coordinates()):
+        if logic.would_this_be_a_draw(current_player, board.empty_tile_coordinates()):
             board.draw()
             print("\n-------------------------------------------------")
             print("\nA draw after", math.ceil(logic.turn/2), "rounds!!\nGood work both!\n")
             print("-------------------------------------------------\n\n\n")
             break
-        #Would this be a draw?
 
     if current_player == 'X':
         current_player = 'O'
