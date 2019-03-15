@@ -97,3 +97,41 @@ class TestBoardClass(object):
         board.game_board = None
         with pytest.raises(IndexError):
             board.empty_tile_coordinates()
+
+
+class TestGetTilesAsDict(object):
+    def test_empty(self, board):
+        board.game_board = [[' ', '|', ' ', '|', ' '],
+                             ['--', '+', '--', '+', '--'],
+                             [' ', '|', ' ', '|', ' '],
+                             ['--', '+', '--', '+', '--'],
+                             [' ', '|', ' ', '|', ' ']]
+        generated = board.get_tiles_as_dict()
+        print(generated)
+        assert generated == {'X':[], 'O':[], ' ':[(0,0),(2,0),(4,0),
+                                                  (0,2),(2,2),(4,2),
+                                                  (0,4),(2,4),(4,4)]}
+    
+    def test_two(self, board):
+        board.game_board = [['X', '|', ' ', '|', ' '],
+                             ['--', '+', '--', '+', '--'],
+                             [' ', '|', 'O', '|', ' '],
+                             ['--', '+', '--', '+', '--'],
+                             [' ', '|', ' ', '|', ' ']]
+        generated = board.get_tiles_as_dict()
+        print(generated)
+        assert generated == {'X':[(0,0)], 'O':[(2,2)], ' ':[(2,0),(4,0),
+                                                            (0,2),(4,2),
+                                                            (0,4),(2,4),(4,4)]}
+    
+    def test_three(self, board):
+        board.game_board = [['X', '|', ' ', '|', ' '],
+                             ['--', '+', '--', '+', '--'],
+                             [' ', '|', 'O', '|', ' '],
+                             ['--', '+', '--', '+', '--'],
+                             ['O', '|', ' ', '|', 'X']]
+        generated = board.get_tiles_as_dict()
+        print(generated)
+        assert generated == {'X':[(0,0),(4,4)], 'O':[(2,2),(0,4)], ' ':[(2,0),(4,0),
+                                                                        (0,2),(4,2),
+                                                                        (2,4)]}
