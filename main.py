@@ -1,6 +1,11 @@
+import math
+
 from src.classes.Board import Board
 from src.classes.LogicChecker import LogicChecker
 from src.classes.InputHandler import InputHandler
+
+
+
 
 board = Board() #This is the game board itself
 logic = LogicChecker(board)
@@ -26,29 +31,40 @@ in_handler = InputHandler(help_board, board)
 """Main Loop"""
 
 current_player = 'X'
-i = 1
 while 1:
     print("\n\n")
     print("------------------------------------------------")
-    print("\t\tRound ", i, ":")
+    print("\t\tRound ", math.ceil(logic.turn/2), ":\n\n\tPlayer ", current_player, " - it is your turn.\n")
+
+
     board.draw()
+
     player_choice = in_handler.get_player_choice(current_player)
 
-    if player_choice != 'surrender': #player_choice will be -1 if one of the players surrenders
-        board.insert(current_player, *player_choice)
+    if player_choice == 'surrender':
+        break
     else:
-        break #One of the players have surrendered.
+        board.insert(current_player, *player_choice) 
 
     if logic.is_this_move_a_victory(current_player, *player_choice):
-        print("\n-------------------------------------------------")
-        print("\nPlayer", current_player, "has won after", i, "rounds!!\nAll hail the victor!\n")
-        print("-------------------------------------------------\n\n\n")
         board.draw()
+        print("\n-------------------------------------------------")
+        print("\nPlayer", current_player, "has won after", math.ceil(logic.turn/2), "rounds!!\nAll hail the victor!\n")
+        print("-------------------------------------------------\n\n")
         break
+    
+    if logic.turn >= 7:
+     if logic.would_this_be_a_draw(current_player, board.empty_tile_coordinates()):
+            board.draw()
+            print("\n-------------------------------------------------")
+            print("\nA draw after", math.ceil(logic.turn/2), "rounds!!\nGood work both!\n")
+            print("-------------------------------------------------\n\n\n")
+            break
+        #Would this be a draw?
 
     if current_player == 'X':
         current_player = 'O'
     else:
         current_player = 'X'
 
-    i += 1
+    logic.turn += 1

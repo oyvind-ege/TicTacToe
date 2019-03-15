@@ -18,10 +18,20 @@ The game board looks like this (with coordinates):
 """
 
 class Board:
-    def __init__(self):
-        self.size = 3
+    def __init__(self, setup=None):
+        """
+        Setup is a dictionary of lists. 
+            Each key represents a player position, the values is a list of tuples representing coordinates where that player has his piece. 
+            Only used for testing.
+        """
 
+        self.size = 3
         self.game_board = [[' ' for column in range(self.size + 2)] for rows in range(self.size + 2)] #This represents the board data
+
+        if setup:
+            for symbol in setup:
+                for coords in setup[symbol]:
+                    self.game_board[coords[1]][coords[0]] = symbol
 
         self._set_grid()
 
@@ -64,8 +74,27 @@ class Board:
             print('\n')
         print("\n")
 
+    def get_tiles_as_dict(self):
+        """Return a dict. Each key represents a symbol, and their values are tuples representing coordinates. Format is X,Y"""
+        
+        return_dict = {'X':[], 'O':[], ' ':[]}
+
+        for y, row in enumerate(self.game_board):
+            for x, column in enumerate(row):
+                if column != '|' and column != '|' and column != '+' and column !='--':
+                    return_dict[column].append((x,y)) #Will return x and y coordinates in a tuple
+
+        return return_dict
+
+    def dict_to_tiles(self, dictionary):
+        """Will transform dictionary into self.game_board."""
+        for symbol in dictionary:
+            coordinates = dictionary[symbol]
+            for each in coordinates:
+                self.game_board[each[0]][each[1]] = symbol
+
     def empty_tile_coordinates(self):
-        """Returns the coordinates for all empty tiles."""
+        """Returns the coordinates for all empty tiles in X,Y format."""
         if self.game_board == None:
             raise IndexError
 

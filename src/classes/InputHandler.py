@@ -45,8 +45,7 @@ class InputHandler:
 
     def get_player_choice(self, player):
         """Get input from the player; ensure the chosen spot has not been taken; return coordinates of valid spot."""
-
-        print("Player ", player, " - it is your turn.\n")
+        
         print("Please type in a number between 1 and 9, then hit Enter.\nIf you give up, type 'surrender'.\nType 'help' to see what the numbers mean.\n\n")
 
         while 1:
