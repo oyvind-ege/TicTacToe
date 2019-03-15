@@ -28,6 +28,9 @@ class LogicChecker:
     
     def _check_diagonal(self, symbol, x, y):
         """Check if adding a symbol to either (0,0), (4,0), (2,2), (0,4), (4,4) will lead to a complete diagonal."""
+        if x == 2 and y != 2:
+            return False
+        
         if y == 0:
             return (self.board.game_board[2][2] == symbol and self.board.game_board[4][4] == symbol
                 or  self.board.game_board[2][2] == symbol and self.board.game_board[4][0] == symbol)
@@ -42,6 +45,11 @@ class LogicChecker:
 
     def is_this_move_a_victory(self, symbol, x, y):
         """Determine whether adding symbol to x,y of the game board would lead to victory. Return boolean."""
+        
+        print("Ch: ", self._check_horizontal(symbol, x, y), 
+            "\nCd: ", self._check_diagonal(symbol, x, y),
+            "\nCv: ", self._check_vertical(symbol, x, y))
+
         return (self._check_horizontal(symbol, x, y) 
             or self._check_diagonal(symbol, x, y) 
             or self._check_vertical(symbol, x, y))
