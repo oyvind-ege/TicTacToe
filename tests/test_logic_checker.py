@@ -1,6 +1,9 @@
 from src.classes.LogicChecker import LogicChecker
 from src.classes.Board import Board
 
+from src.classes.utilities import Logger as log
+
+logger = log.Logger()
 
 """
 The game board looks like this (with coordinates):
@@ -197,17 +200,6 @@ class TestDrawChecker(object):
     
     """Victory scenarios"""
 
-    def test_victory_in_1(self):
-        board = Board()
-        checker = LogicChecker(board)
-        checker.turn = 9
-        board.game_board = [['X', '|', 'X', '|', ' '],
-                            ['--', '+', '--', '+', '--'],
-                            ['O', '|', 'O', '|', 'X'],
-                            ['--', '+', '--', '+', '--'],
-                            ['X', '|', 'O', '|', 'O']]
-        board.draw()
-        assert checker.would_this_be_a_draw('X', [(4,0)]) == False
     
     def test_diagonal_victory_in_1(self):
         board = Board()
@@ -237,21 +229,6 @@ class TestDrawChecker(object):
     One player can commit a grievous mistake! This is not a draw condition.
     """
 
-    def test_mistake_possible(self):
-        """X can put his symbol on (4,2) and therefore loose the game."""
-        board = Board()
-        checker = LogicChecker(board)
-        checker.turn = 8
-        board.game_board = [['X', '|', 'X', '|', 'O'],
-                        ['--', '+', '--', '+', '--'],
-                        ['O', '|', 'X', '|', ' '],
-                        ['--', '+', '--', '+', '--'],
-                        ['X', '|', 'O', '|', ' ']]
-
-        checker.board.draw()
-
-        assert checker.would_this_be_a_draw('O', [(4,2), (4,4)]) == False
-    
     def test_mistake_possible_2(self):
         board = Board()
         checker = LogicChecker(board)
