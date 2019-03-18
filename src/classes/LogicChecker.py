@@ -99,6 +99,11 @@ class LogicChecker:
             scenario1_future_positions = current_positions_as_dict
             scenario2_future_positions = current_positions_as_dict
 
+            #Scenario 1
+            # This scenario assumes the relevant player chooses the tile represented by empty_tile_coordinates[0]
+            # This means the opposing player must choose empty_tile_coordinates[1]
+            # So we need to figure out whether this combination would result in a draw
+
             scenario1_future_positions[next_symbol].append(empty_tiles_coordinates[0])
 
             scenario1_board = Board(setup=scenario1_future_positions)
@@ -108,6 +113,8 @@ class LogicChecker:
                                 and not scenario1_logic.is_this_move_a_victory(self.symbol_opposites[next_symbol], *empty_tiles_coordinates[1]))
  
             #Scenario 2
+            # Here the scenario is reversed
+
             scenario2_future_positions[next_symbol].append(empty_tiles_coordinates[1])
 
             scenario2_board = Board(setup=scenario2_future_positions)

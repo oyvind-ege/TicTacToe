@@ -19,11 +19,7 @@ The game board looks like this (with coordinates):
 
 class Board:
     def __init__(self, setup=None):
-        """
-        Setup is a dictionary of lists. 
-            Each key represents a player position, the values is a list of tuples representing coordinates where that player has his piece. 
-            Only used for testing.
-        """
+        """Setup is a dictionary. Each key represents a player(X, O), the values is a list of tuples representing coordinates where that player has his piece."""
 
         self.size = 3
         self.game_board = [[' ' for column in range(self.size + 2)] for rows in range(self.size + 2)] #This represents the board data
