@@ -4,11 +4,6 @@ from src.classes.Board import Board
 from src.classes.LogicChecker import LogicChecker
 from src.classes.InputHandler import InputHandler
 
-from src.classes.utilities import Logger as log
-
-
-
-logger = log.Logger()
 board = Board() #This is the game board itself
 logic = LogicChecker(board)
 

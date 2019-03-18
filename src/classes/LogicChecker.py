@@ -1,9 +1,5 @@
 from src.classes.Board import Board
-from src.classes.utilities import Logger as log
 
-
-
-logger = log.Logger()
 
 class LogicChecker:
     def __init__(self, board):
