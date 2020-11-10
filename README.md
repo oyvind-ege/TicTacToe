@@ -2,6 +2,9 @@
 
 This is my python implementation of Tic Tac Toe.
 
+![alt text](https://i.imgur.com/qmPSuhN.png "Tic Tac Toe")
+
+
 *From Wikipedia:*
 
 Tic-tac-toe (American English) is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game. 
@@ -12,6 +15,8 @@ Tic-tac-toe (American English) is a paper-and-pencil game for two players, X and
 - A "help" function for the player.
 - A "surrender" function.
 - Will correctly identify games that cannot be won by either player, and declares a draw
+
+![alt text](https://i.imgur.com/g2QXhmf.png "Tic Tac Draw")
 
 ## Lessons learned
 
